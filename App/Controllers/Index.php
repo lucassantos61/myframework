@@ -4,12 +4,21 @@ namespace App\Controllers;
 
 class Index
 {
+    private $view;
+
+    public function __construct()
+    {
+        $this->view = new \stdClass();
+    }
     public function index()
     {
-        echo "Controller index action index";
+        $nomes = array('Lucas','José','Teresinha');
+        $this->view->nomes = $nomes;
+
+       include '../App/Views/index/index.phtml';
     }
     public function empresa()
     {
-        echo 'Controller: index ,Action:Empresa';
+        include '../App/views/index/empresa.phtml';
     }
 }
