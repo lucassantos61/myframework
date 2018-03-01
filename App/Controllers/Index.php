@@ -2,23 +2,18 @@
 
 namespace App\Controllers;
 
-class Index
+use Core\Controller\Action;
+class Index extends Action
 {
-    private $view;
 
-    public function __construct()
-    {
-        $this->view = new \stdClass();
-    }
     public function index()
     {
         $nomes = array('Lucas','José','Teresinha');
         $this->view->nomes = $nomes;
-
-       include '../App/Views/index/index.phtml';
+        $this->render('index');
     }
     public function empresa()
     {
-        include '../App/views/index/empresa.phtml';
+        $this->render('empresa');
     }
 }
